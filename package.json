@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/app.ts",
     "start:dev": "ts-node-dev src/app.ts --watch",
     "format": "prettier --write .",
-    "build": "tsc"
+    "build": "tsc",
+    "start:prod": "node dist/app.js",
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
