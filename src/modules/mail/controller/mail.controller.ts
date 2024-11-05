@@ -5,12 +5,15 @@ import { SentMessageInfo } from 'nodemailer';
 
 export async function sendEmail(req: Request, res: Response) {
   const mail = req.body;
-  
+
   try {
     const response: SentMessageInfo = await sendContactMail(mail);
 
-    res.status(200).send(`Email enviado: Status de envio ${response.success}`);
+    res.status(200).send({
+      success: true,
+      response: response,
+    });
   } catch (error: Error | any) {
-    res.status(500).send(`Erro ao enviar email: ${error.message}`);
+    res.status(500).send(error);
   }
 }
